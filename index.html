@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Men's Sneakers shop</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/secondary.css">
   <script src="https://kit.fontawesome.com/1a052ad93a.js" crossorigin="anonymous"></script>
   <link rel="icon" href="img/sneaker-icon.png">
 </head>
@@ -44,7 +45,7 @@
 
           <div class="mb-3">
             <label for="manufacturer" class="form-label">Sneaker Makers</label>
-            <select class="form-select" id="manufacturer">
+            <select class="form-select" required="required" id="manufacturer">
               <option value="0">All</option>
               <!-- manufacturers array bu yerga kelishi kerak -->
             </select>
@@ -70,7 +71,7 @@
           <p id="sneakers-count">Count:</p>
         </div>
 
-        <ul class="row list-unstyled g-3 sneakers">
+        <ul class="row list-unstyled g-3 sneakers__list">
           <!-- <li class="col-4">
             <div class="card">
               <img src="https://picsum.photos/300/200" alt="" class="card-img-top">
@@ -126,16 +127,16 @@
             </div>
             <div class="mb-3">
               <label for="sneaker-manufacturer" class="form-label">Sneakers Maker</label>
-              <select class="form-select" required id="sneaker__manufacturer">
-                <option selected disabled value="0" class="sneakerManufacturers">Select a Sneakers</option>
+              <select class="form-select sneakers-manufacturer-select" required id="sneaker__manufacturer">
+                <option value="" class="sneakerManufacturers">Select a Sneakers</option>
                 <!-- manufacturers array bu yerga kelishi kerak -->
               </select>
             </div>
             
             <div class="mb-3">
-              <label for="sneaker-manufacturer" class="form-label">Select Sneaker's Size</label>
-              <select class="form-select" required id="sneaker__manufacturer">
-                <option selected disabled value="0" class="sneakerManufacturers">Select a size</option>
+              <label for="sneaker-size" class="form-label">Select Sneaker's Size</label>
+              <select class="form-select sneakers-size" required id="sneaker__size">
+                <option value="" class="sneakerSize" aria-required="false">Select a size</option>
                 <!-- manufacturers array bu yerga kelishi kerak -->
               </select>
             </div>
