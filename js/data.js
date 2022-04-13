@@ -1,23 +1,25 @@
- const products = [
+ const sneakers = [
   {
     id: 123,
-    title: "redmi Note 10 Pro",
+    title: "Nike air jordan",
     img: "https://picsum.photos/300/200",
-    price: 4300000,
-    discountPrice: 4300000 - (4300000 / 100 * 25), // chegirmadagi summa.
-    model: "Xiaomi",
+    price: 350.000,
+    discountPrice: 350.000 * 0.75, // chegirmadagi summa.
+    model: "Nike",
+    size: 43,
     addedDate: new Date("2021-11-12").toISOString(),
-    benefits: ["8gb", "128gb", "Waterproof"]
+    benefits: ["spring", "44", "Waterproof"]
   },
   {
     id: 124,
-    title: "samsung Note 20",
+    title: "Adidas NMD_R1",
     img: "https://picsum.photos/300/200",
-    discountPrice: 8300000 - (8300000 / 100 * 25), // chegirmadagi summa.
-    price: 8300000,
-    model: "Samsung",
+    discountPrice: 400.000 * 0.75, // chegirmadagi summa.
+    price: 400.000,
+    model: "Adidas",
+    size: 42,
     addedDate: new Date("2021-10-12").toISOString(),
-    benefits: ["32gb", "1tb"]
+    benefits: ["winter", "1tb"]
   }
 ]
 

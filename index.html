@@ -5,18 +5,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products</title>
+  <title>Men's Sneakers shop</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/1a052ad93a.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="img/sneaker-icon.png">
 </head>
 
 <body>
   <div class="container my-5">
     <div class="d-flex justify-content-between">
-      <h1 class="h2">Gilos.uz/smartphones</h1>
+      <h1 class="h2">Men's Sneakers Shop</h1>
 
-      <button class="btn btn-primary px-4 addProduct" data-bs-toggle="modal" data-bs-target="#add-product-modal">
-        <span class="me-2">Add product</span>
+      <button class="btn btn-primary px-4 addsneaker" data-bs-toggle="modal" data-bs-target="#add-sneaker-modal">
+        <span class="me-2">Add sneaker</span>
         <i class="fa-solid fa-plus"></i>
       </button>
     </div>
@@ -27,7 +28,7 @@
         <form id="filter-form" action="#">
           <div class="mb-3">
             <label for="search" class="form-label">Search</label>
-            <input type="search" class="form-control" id="search" placeholder="Falonchi">
+            <input type="search" class="form-control" id="search" placeholder="Sneaker's name">
           </div>
           <div class="mb-3">
             <label class="form-label">Price</label>
@@ -42,7 +43,7 @@
           </div>
 
           <div class="mb-3">
-            <label for="manufacturer" class="form-label">Manufacturer</label>
+            <label for="manufacturer" class="form-label">Sneaker Makers</label>
             <select class="form-select" id="manufacturer">
               <option value="0">All</option>
               <!-- manufacturers array bu yerga kelishi kerak -->
@@ -63,13 +64,13 @@
         </form>
       </div>
 
-      <section class="col-9" id="product">
+      <section class="col-9" id="sneaker">
         <div class="d-flex justify-content-between align-items-baseline">
-          <h2 class="h4 mb-4">Products list</h2>
-          <p id="products-count">Count:</p>
+          <h2 class="h4 mb-4">Sneakers list</h2>
+          <p id="sneakers-count">Count:</p>
         </div>
 
-        <ul class="row list-unstyled g-3 products">
+        <ul class="row list-unstyled g-3 sneakers">
           <!-- <li class="col-4">
             <div class="card">
               <img src="https://picsum.photos/300/200" alt="" class="card-img-top">
@@ -104,29 +105,37 @@
   </div>
   </div>
 
-  <div class="modal fade" id="add-product-modal" tabindex="-1" aria-labelledby="addStudentModalLabel"
+  <div class="modal fade" id="add-sneaker-modal" tabindex="-1" aria-labelledby="addStudentModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addStudentModalLabel">Add product</h5>
+          <h5 class="modal-title" id="addStudentModalLabel">Add sneaker</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="add-product">
+          <form id="add-sneaker">
             <div class="mb-3">
-              <label for="product-title" class="form-label">Title</label>
-              <input type="text" class="form-control" id="title" required min="0" placeholder="Falon telefon">
+              <label for="sneaker-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title" required min="0" placeholder="Sneaker's name">
             </div>
             <div class="mb-3">
               <label for="price" class="form-label">Narxi</label>
-              <input type="number" class="form-control" id="product__price" required min="0"
+              <input type="number" class="form-control" id="sneaker__price" required min="0"
                 placeholder="narxini yozing">
             </div>
             <div class="mb-3">
-              <label for="product-manufacturer" class="form-label">Manufacturer</label>
-              <select class="form-select" required id="product__manufacturer">
-                <option selected disabled value="0" class="productManufacturers">Select a manufacturer</option>
+              <label for="sneaker-manufacturer" class="form-label">Sneakers Maker</label>
+              <select class="form-select" required id="sneaker__manufacturer">
+                <option selected disabled value="0" class="sneakerManufacturers">Select a Sneakers</option>
+                <!-- manufacturers array bu yerga kelishi kerak -->
+              </select>
+            </div>
+            
+            <div class="mb-3">
+              <label for="sneaker-manufacturer" class="form-label">Select Sneaker's Size</label>
+              <select class="form-select" required id="sneaker__manufacturer">
+                <option selected disabled value="0" class="sneakerManufacturers">Select a size</option>
                 <!-- manufacturers array bu yerga kelishi kerak -->
               </select>
             </div>
@@ -139,36 +148,36 @@
 
               </ul>
             </div>
-            <button type="submit" class="btn btn-primary d-block w-100 p-2">Add product</button>
+            <button type="submit" class="btn btn-primary d-block w-100 p-2">Add sneaker</button>
           </form>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal fade edit" id="edit-product-modal" tabindex="-1" aria-labelledby="editStudentModalLabel"
+  <div class="modal fade edit" id="edit-sneaker-modal" tabindex="-1" aria-labelledby="editStudentModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editStudentModalLabel">Edit product</h5>
+          <h5 class="modal-title" id="editStudentModalLabel">Edit sneaker</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="edit-product">
+          <form id="edit-sneaker">
             <div class="mb-3">
-              <label for="product-title" class="form-label">Title</label>
-              <input type="text" class="form-control" id="edit-title" required min="0" placeholder="Falon telefon">
+              <label for="sneaker-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="edit-title" required min="0" placeholder="Sneaker's name">
             </div>
             <div class="mb-3">
               <label for="price" class="form-label">Narxi</label>
-              <input type="number" class="form-control" id="edit-product__price" required min="0"
+              <input type="number" class="form-control" id="edit-sneaker__price" required min="0"
                 placeholder="narxini yozing">
             </div>
             <div class="mb-3">
-              <label for="product-manufacturer" class="form-label">Manufacturer</label>
-              <select class="form-select" required id="edit-product__manufacturer">
-                <option selected disabled value="0" class="productManufacturers">Select a manufacturer</option>
+              <label for="sneaker-manufacturer" class="form-label">Sneakers Maker</label>
+              <select class="form-select" required id="edit-sneaker__manufacturer">
+                <option selected disabled value="0" class="sneakerManufacturers">Select a Sneakers</option>
                 <!-- manufacturers array bu yerga kelishi kerak -->
               </select>
             </div>
@@ -181,7 +190,7 @@
 
               </ul>
             </div>
-            <button type="submit" class="btn btn-primary d-block w-100 p-2">Edit product</button>
+            <button type="submit" class="btn btn-primary d-block w-100 p-2">Edit sneaker</button>
           </form>
         </div>
       </div>
