@@ -85,11 +85,34 @@ const renderSneakers = function (sneakers) {
         appendChild(sneakerBenefitsList, sneakerBeenfitsItem);
     })
 
+    const buttons = addElement("div", "position-absolute top-0 end-0 d-flex");
+
+    //edit button
+    const editButton = addElement("button", "btn rounded-0 btn-secondary edit-button");
+    editButton.setAttribute("data-id", id);
+    editButton.setAttribute("data-bs-toggle", "modal");
+    editButton.setAttribute("data-bs-target", "#edit-product-modal");
+    appendChild(buttons, editButton);
+
+    const editButtonImg = addElement("i", "fa-solid fa-pen");
+    appendChild(editButton, editButtonImg);
+    editButtonImg.style.pointerEvents = "none";
+
+    //trash button
+    const trashButton = addElement("button", "btn rounded-0 btn-danger delete-button");
+    trashButton.setAttribute("data-id", id);
+
+    const trashButtonImg = addElement("i", "fa-solid fa-trash");
+    appendChild(trashButton, trashButtonImg);
+    trashButtonImg.style.pointerEvents = "none";
+
+    appendChild(buttons, trashButton);
+
     appendChild(sneakerItem, sneakerCard); // div.card in li.sneakers__item
     appendChild(sneakerDiscountPrice, sneakerDiscountPriceMark);
 
     appendChildren(sneakerCard, [sneakerImg, sneakerCardBody]); // sneakerImg and sneakerCardBody in sneakerCard
-    appendChildren(sneakerCardBody, [sneakerTitle, sneakerDiscountPrice, sneakerPrice, sneakerMaker, sneakerSize, sneakerAddedDate, sneakerBenefitsList]);
+    appendChildren(sneakerCardBody, [sneakerTitle, sneakerDiscountPrice, sneakerPrice, sneakerMaker, sneakerSize, sneakerAddedDate, sneakerBenefitsList, buttons]);
 
     // appendChild(sneakerList, sneakerItem);
 
@@ -200,17 +223,6 @@ addSneakerForm.addEventListener("submit", function (evt) {
     console.log(benefitsValue);
 
     if (titleValue && priceValue && makersValue && sizesValue && benefitsValue) {
-        // const sneakerArray = {
-        //     id: Math.floor(Math.random() * 1000),
-        //     title: titleValue,
-        //     img: "https://picsum.photos/300/200",
-        //     price: priceValue,
-        //     discountPrice: price * 0.75,
-        //     model: makersValue,
-        //     size: sizesValue,
-        //     addedDate: new Date(),
-        //     benefits: benefitsOptions
-        // }
 
         const sneakerArray = {
             id: Math.floor(Math.random() * 1000),
@@ -237,3 +249,18 @@ addSneakerForm.addEventListener("submit", function (evt) {
     addSneakerModal.hide();
 
 });
+
+sneakerList.addEventListener("click", function(evt){
+    if (evt.target.matches(".delete-button")) {
+        const clickEdItem = +evt.target.dataset.id;
+
+        const sneakersItemIndex = sneakers.findIndex(function (sneaker){
+            return sneaker.id === clickEdItem;
+        });
+
+        showSneakers.splice(sneakersItemIndex, 1);
+        sneakers.splice(sneakersItemIndex, 1);
+
+        sneakerRefresh();
+    }
+})
