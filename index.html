@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/1a052ad93a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container my-5">
+    <div class="d-flex justify-content-between">
+      <h1 class="h2">Gilos.uz/smartphones</h1>
+
+      <button class="btn btn-primary px-4 addProduct" data-bs-toggle="modal" data-bs-target="#add-product-modal">
+        <span class="me-2">Add product</span>
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-3">
+        <h2 class="h4 mb-4">Filter</h2>
+        <form id="filter-form" action="#">
+          <div class="mb-3">
+            <label for="search" class="form-label">Search</label>
+            <input type="search" class="form-control" id="search" placeholder="Falonchi">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Price</label>
+            <div class="row">
+              <div class="col-6">
+                <input type="number" class="form-control" id="from" min="0" aria-label="From" placeholder="From">
+              </div>
+              <div class="col-6">
+                <input type="number" class="form-control" id="to" min="0" aria-label="To" placeholder="To">
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="manufacturer" class="form-label">Manufacturer</label>
+            <select class="form-select" id="manufacturer">
+              <option value="0">All</option>
+              <!-- manufacturers array bu yerga kelishi kerak -->
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="sortby" class="form-label">Sort by</label>
+            <select class="form-select" id="sortby">
+              <option value="1">Name</option>
+              <option value="2">Price: to lowest</option>
+              <option value="3">Price: to highest</option>
+              <!-- <option value="4">Added Date</option> -->
+            </select>
+          </div>
+
+          <button class="btn btn-primary d-block w-100 py-2">Filter</button>
+        </form>
+      </div>
+
+      <section class="col-9" id="product">
+        <div class="d-flex justify-content-between align-items-baseline">
+          <h2 class="h4 mb-4">Products list</h2>
+          <p id="products-count">Count:</p>
+        </div>
+
+        <ul class="row list-unstyled g-3 products">
+          <!-- <li class="col-4">
+            <div class="card">
+              <img src="https://picsum.photos/300/200" alt="" class="card-img-top">
+              <div class="card-body">
+                <h3 class="card-title">Gadget title</h3>
+                <p class="card-text fw-bold"><mark>2.000.000</mark></p>
+                <p class="card-text"><s>2.000.000</s></p>
+                <p class="badge bg-success">Xiaomi (gadget firmasi)</p>
+
+                <p class="card-text">12.05.2022</p>
+
+                <ul class="d-flex flex-wrap list-unstyled">
+                  <li class="badge bg-primary me-1 mb-1">8gb</li>
+                  <li class="badge bg-primary me-1 mb-1">128gb</li>
+                  <li class="badge bg-primary me-1 mb-1">Waterproof</li>
+                  <li class="badge bg-primary me-1 mb-1">Falon yaxshi tarafi</li>
+                </ul>
+              </div>
+            </div>
+          </li> -->
+        </ul>
+
+        <div class="position-absolute top-0 end-0 d-flex">
+        </div>
+      </section>
+    </div>
+  </div>
+  </div>
+  </li>
+  </ul>
+  </section>
+  </div>
+  </div>
+
+  <div class="modal fade" id="add-product-modal" tabindex="-1" aria-labelledby="addStudentModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addStudentModalLabel">Add product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="add-product">
+            <div class="mb-3">
+              <label for="product-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title" required min="0" placeholder="Falon telefon">
+            </div>
+            <div class="mb-3">
+              <label for="price" class="form-label">Narxi</label>
+              <input type="number" class="form-control" id="product__price" required min="0"
+                placeholder="narxini yozing">
+            </div>
+            <div class="mb-3">
+              <label for="product-manufacturer" class="form-label">Manufacturer</label>
+              <select class="form-select" required id="product__manufacturer">
+                <option selected disabled value="0" class="productManufacturers">Select a manufacturer</option>
+                <!-- manufacturers array bu yerga kelishi kerak -->
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="benefits" class="form-label">Benefits</label>
+              <input type="text" class="form-control" required id="benefit" placeholder="Yaxshi tomonlari">
+
+              <ul class="d-flex flex-wrap list-unstyled mt-3 gap-2" id="benefitsExample">
+
+              </ul>
+            </div>
+            <button type="submit" class="btn btn-primary d-block w-100 p-2">Add product</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade edit" id="edit-product-modal" tabindex="-1" aria-labelledby="editStudentModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editStudentModalLabel">Edit product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="edit-product">
+            <div class="mb-3">
+              <label for="product-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="edit-title" required min="0" placeholder="Falon telefon">
+            </div>
+            <div class="mb-3">
+              <label for="price" class="form-label">Narxi</label>
+              <input type="number" class="form-control" id="edit-product__price" required min="0"
+                placeholder="narxini yozing">
+            </div>
+            <div class="mb-3">
+              <label for="product-manufacturer" class="form-label">Manufacturer</label>
+              <select class="form-select" required id="edit-product__manufacturer">
+                <option selected disabled value="0" class="productManufacturers">Select a manufacturer</option>
+                <!-- manufacturers array bu yerga kelishi kerak -->
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="benefits" class="form-label">Benefits</label>
+              <input type="text" class="form-control" id="edit-benefit" required placeholder="Yaxshi tomonlari">
+
+              <ul class="d-flex flex-wrap list-unstyled mt-3 gap-2" id="edit-benefits-example">
+
+              </ul>
+            </div>
+            <button type="submit" class="btn btn-primary d-block w-100 p-2">Edit product</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
